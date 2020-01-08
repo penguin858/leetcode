@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Leetcode
 
 ## 介绍
@@ -9,9 +9,6 @@
 
 以上。
 
-=======
-# leetcode
-A repository of answers of leetcode
 
-I'm a new user of leetcode.I want to use this branch to save the answers written in java。
->>>>>>> 8abf196e782dabf731ca5f29143dccbee06797ca
+
+
