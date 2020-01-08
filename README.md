@@ -1,6 +1,8 @@
 
 # Leetcode
 
+简体中文 | [English](README.en.md)
+
 ## 介绍
 
 这个repo是对我自己在leetcode上做题的一份记录。
