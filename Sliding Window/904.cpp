@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
 /*
@@ -15,9 +16,48 @@ using namespace std;
  *  
 */
 
+/*
+ * Idea: This question can be changed into 'Finding the longest substring which has two distinct characters'. The feasible solution is to use a hashmap to record current counts of the two distinct character. 
+*/
+
 class Solution {
 public:
     int totalFruit(vector<int>& tree) {
-        int res = 0;
+        int res = 0, start = 0, len = tree.size();
+        unordered_map<int, int> fruitCnt;
+        for(int i = 0 ; i < len; ++i){
+            fruitCnt[tree[i]]++;
+            while(fruitCnt.size() > 2){
+                if(--fruitCnt[tree[start]] == 0){
+                    fruitCnt.erase(tree[start]);
+                }
+                start++;
+            }
+            res = max(res, i - start + 1);
+        }
+        return res;
+    }
+};
+
+/**
+ * Another possible way is to record the last position of each character rather than their counts. It will have the same performance as previous method.
+*/
+
+class Solution {
+public:
+    int totalFruit(vector<int>& tree) {
+        int res = 0, start = 0, len = tree.size();
+        unordered_map<int, int> fruitCnt;
+        for(int i = 0 ; i < len; ++i){
+            fruitCnt[tree[i]] = i;
+            while(fruitCnt.size() > 2){
+                if(fruitCnt[tree[start]] == start){
+                    fruitCnt.erase(tree[start]);
+                }
+                start++;
+            }
+            res = max(res, i - start + 1);
+        }
+        return res;
     }
 };
